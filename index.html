@@ -23,7 +23,7 @@ layout: default
         </div>
         <a href="#rsvp" class="cta-button">Conferma la tua presenza</a>
     </div>
-            <div class="hero-image">
+    <div class="hero-image">
         <img src="/assets/images/hero-couple.jpg" alt="{{ site.sposa.nome }} e {{ site.sposo.nome }}">
     </div>
 </section>
@@ -115,25 +115,25 @@ layout: default
     <div class="container">
         <h2>Conferma la tua presenza</h2>
         <p>La tua presenza è il regalo più bello che potremmo desiderare!</p>
-        
+
         <form name="rsvp" method="POST" data-netlify="true" class="rsvp-form">
             <input type="hidden" name="form-name" value="rsvp">
-            
+
             <div class="form-group">
                 <label for="nome">Nome completo *</label>
                 <input type="text" id="nome" name="nome" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="email">Email *</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="telefono">Telefono</label>
                 <input type="tel" id="telefono" name="telefono">
             </div>
-            
+
             <div class="form-group">
                 <label for="partecipazione">Parteciperai al matrimonio? *</label>
                 <select id="partecipazione" name="partecipazione" required>
@@ -144,7 +144,7 @@ layout: default
                     <option value="no">No, non potrò partecipare</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label for="accompagnatori">Numero accompagnatori</label>
                 <select id="accompagnatori" name="accompagnatori">
@@ -154,12 +154,12 @@ layout: default
                     <option value="3">+3 persone</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label for="nomi_accompagnatori">Nomi accompagnatori</label>
                 <input type="text" id="nomi_accompagnatori" name="nomi_accompagnatori" placeholder="Inserisci i nomi degli accompagnatori">
             </div>
-            
+
             <div class="form-group">
                 <label for="menu">Preferenze menu</label>
                 <select id="menu" name="menu">
@@ -170,12 +170,12 @@ layout: default
                     <option value="altro">Altro (specificare nelle note)</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label for="intolleranze">Allergie e intolleranze alimentari</label>
                 <textarea id="intolleranze" name="intolleranze" rows="3" placeholder="Descrivi eventuali allergie o intolleranze alimentari"></textarea>
             </div>
-            
+
             <div class="form-group">
                 <label for="trasporto">Hai bisogno di informazioni sui trasporti?</label>
                 <select id="trasporto" name="trasporto">
@@ -185,12 +185,12 @@ layout: default
                     <option value="entrambi">Sì, entrambe le info</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label for="messaggio">Messaggio per gli sposi</label>
                 <textarea id="messaggio" name="messaggio" rows="4" placeholder="Lasciaci un messaggio speciale!"></textarea>
             </div>
-            
+
             <button type="submit" class="submit-button">Invia Conferma</button>
         </form>
     </div>
@@ -251,60 +251,60 @@ layout: default
 </section>
 
 <script>
-// Countdown timer
-function countdown() {
-    const weddingDate = new Date("{{ site.matrimonio.data }}T{{ site.matrimonio.ora_cerimonia }}").getTime();
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-    
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    
-    if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "Il matrimonio è oggi!";
+    // Countdown timer
+    function countdown() {
+        const weddingDate = new Date("{{ site.matrimonio.data }}T{{ site.matrimonio.ora_cerimonia }}").getTime();
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+
+        if (distance < 0) {
+            document.getElementById("countdown").innerHTML = "Il matrimonio è oggi!";
+        }
     }
-}
 
-countdown();
-setInterval(countdown, 60000);
+    countdown();
+    setInterval(countdown, 60000);
 
-// Smooth scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
-});
 
-// Gallery lightbox effect
-document.querySelectorAll('.gallery-item img').forEach(img => {
-    img.addEventListener('click', function() {
-        const lightbox = document.createElement('div');
-        lightbox.classList.add('lightbox');
-        lightbox.innerHTML = `
+    // Gallery lightbox effect
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.addEventListener('click', function() {
+            const lightbox = document.createElement('div');
+            lightbox.classList.add('lightbox');
+            lightbox.innerHTML = `
             <div class="lightbox-content">
                 <img src="${this.src}" alt="${this.alt}">
                 <span class="close">&times;</span>
             </div>
         `;
-        document.body.appendChild(lightbox);
-        
-        lightbox.querySelector('.close').addEventListener('click', () => {
-            document.body.removeChild(lightbox);
-        });
-        
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
+            document.body.appendChild(lightbox);
+
+            lightbox.querySelector('.close').addEventListener('click', () => {
                 document.body.removeChild(lightbox);
-            }
+            });
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    document.body.removeChild(lightbox);
+                }
+            });
         });
     });
-});
 </script>
