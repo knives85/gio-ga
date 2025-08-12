@@ -1,0 +1,310 @@
+---
+layout: default
+---
+
+<!-- Hero Section -->
+<section id="hero" class="hero">
+    <div class="hero-content">
+        <h1 class="names">{{ site.sposo.nome }} <span>&amp;</span> {{ site.sposa.nome }}</h1>
+        <p class="wedding-date">{{ site.matrimonio.data_formattata }}</p>
+        <div class="countdown" id="countdown">
+            <div class="countdown-item">
+                <span id="days">0</span>
+                <label>Giorni</label>
+            </div>
+            <div class="countdown-item">
+                <span id="hours">0</span>
+                <label>Ore</label>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes">0</span>
+                <label>Minuti</label>
+            </div>
+        </div>
+        <a href="#rsvp" class="cta-button">Conferma la tua presenza</a>
+    </div>
+            <div class="hero-image">
+        <img src="/assets/images/hero-couple.jpg" alt="{{ site.sposa.nome }} e {{ site.sposo.nome }}">
+    </div>
+</section>
+
+<!-- La Nostra Storia -->
+<section id="storia" class="our-story">
+    <div class="container">
+        <h2>La Nostra Storia</h2>
+        <div class="story-timeline">
+            <div class="story-item">
+                <div class="story-date">2019</div>
+                <div class="story-content">
+                    <h3>Il Primo Incontro</h3>
+                    <p>Ci siamo conosciuti durante un corso di danza. Chi avrebbe mai pensato che quei primi passi incerti sarebbero diventati l'inizio del nostro valzer per la vita?</p>
+                </div>
+            </div>
+            <div class="story-item">
+                <div class="story-date">2022</div>
+                <div class="story-content">
+                    <h3>La Convivenza</h3>
+                    <p>Abbiamo deciso di andare a vivere insieme, scoprendo che condividere la vita quotidiana rendeva il nostro amore ancora più forte e speciale.</p>
+                </div>
+            </div>
+            <div class="story-item">
+                <div class="story-date">2025</div>
+                <div class="story-content">
+                    <h3>La Proposta</h3>
+                    <p>Durante una passeggiata romantica tra i vigneti del Piemonte, Gabriele ha chiesto a Giorgia di sposarlo. Una proposta magica con vista sulle montagne!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dettagli Matrimonio -->
+<section id="dettagli" class="wedding-details">
+    <div class="container">
+        <h2>Dettagli del Matrimonio</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <div class="detail-icon">⛪</div>
+                <h3>Cerimonia</h3>
+                <p><strong>{{ site.cerimonia.nome }}</strong></p>
+                <p>{{ site.cerimonia.indirizzo }}</p>
+                <p>Ore {{ site.matrimonio.ora_cerimonia }}</p>
+                <a href="https://maps.google.com/?q={{ site.cerimonia.coordinate }}" target="_blank" class="map-link">Visualizza mappa</a>
+            </div>
+            <div class="detail-card">
+                <div class="detail-icon">🍽️</div>
+                <h3>Ricevimento</h3>
+                <p><strong>{{ site.ricevimento.nome }}</strong></p>
+                <p>{{ site.ricevimento.indirizzo }}</p>
+                <p>Ore {{ site.matrimonio.ora_ricevimento }}</p>
+                <a href="https://maps.google.com/?q={{ site.ricevimento.coordinate }}" target="_blank" class="map-link">Visualizza mappa</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Galleria -->
+<section id="galleria" class="gallery">
+    <div class="container">
+        <h2>Le Nostre Foto</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="/assets/images/gallery/foto1.jpg" alt="Giorgia e Gabriele" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/images/gallery/foto2.jpg" alt="Giorgia e Gabriele" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/images/gallery/foto3.jpg" alt="Giorgia e Gabriele" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/images/gallery/foto4.jpg" alt="Giorgia e Gabriele" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/images/gallery/foto5.jpg" alt="Giorgia e Gabriele" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="/assets/images/gallery/foto6.jpg" alt="Giorgia e Gabriele" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RSVP Form -->
+<section id="rsvp" class="rsvp">
+    <div class="container">
+        <h2>Conferma la tua presenza</h2>
+        <p>La tua presenza è il regalo più bello che potremmo desiderare!</p>
+        
+        <form name="rsvp" method="POST" data-netlify="true" class="rsvp-form">
+            <input type="hidden" name="form-name" value="rsvp">
+            
+            <div class="form-group">
+                <label for="nome">Nome completo *</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="telefono">Telefono</label>
+                <input type="tel" id="telefono" name="telefono">
+            </div>
+            
+            <div class="form-group">
+                <label for="partecipazione">Parteciperai al matrimonio? *</label>
+                <select id="partecipazione" name="partecipazione" required>
+                    <option value="">Seleziona...</option>
+                    <option value="si-entrambi">Sì, sia cerimonia che ricevimento</option>
+                    <option value="si-cerimonia">Sì, solo cerimonia</option>
+                    <option value="si-ricevimento">Sì, solo ricevimento</option>
+                    <option value="no">No, non potrò partecipare</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="accompagnatori">Numero accompagnatori</label>
+                <select id="accompagnatori" name="accompagnatori">
+                    <option value="0">Solo io</option>
+                    <option value="1">+1 persona</option>
+                    <option value="2">+2 persone</option>
+                    <option value="3">+3 persone</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="nomi_accompagnatori">Nomi accompagnatori</label>
+                <input type="text" id="nomi_accompagnatori" name="nomi_accompagnatori" placeholder="Inserisci i nomi degli accompagnatori">
+            </div>
+            
+            <div class="form-group">
+                <label for="menu">Preferenze menu</label>
+                <select id="menu" name="menu">
+                    <option value="onnivoro">Onnivoro</option>
+                    <option value="vegetariano">Vegetariano</option>
+                    <option value="vegano">Vegano</option>
+                    <option value="celiaco">Celiaco</option>
+                    <option value="altro">Altro (specificare nelle note)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="intolleranze">Allergie e intolleranze alimentari</label>
+                <textarea id="intolleranze" name="intolleranze" rows="3" placeholder="Descrivi eventuali allergie o intolleranze alimentari"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="trasporto">Hai bisogno di informazioni sui trasporti?</label>
+                <select id="trasporto" name="trasporto">
+                    <option value="no">No, ho già risolto</option>
+                    <option value="mezzi-pubblici">Sì, info mezzi pubblici</option>
+                    <option value="parcheggio">Sì, info parcheggi</option>
+                    <option value="entrambi">Sì, entrambe le info</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="messaggio">Messaggio per gli sposi</label>
+                <textarea id="messaggio" name="messaggio" rows="4" placeholder="Lasciaci un messaggio speciale!"></textarea>
+            </div>
+            
+            <button type="submit" class="submit-button">Invia Conferma</button>
+        </form>
+    </div>
+</section>
+
+<!-- Lista Nozze -->
+<section id="regali" class="gifts">
+    <div class="container">
+        <h2>Lista Nozze</h2>
+        <p>La vostra presenza è il regalo più grande, ma se desiderate farci un dono:</p>
+        <div class="gifts-options">
+            <div class="gift-option">
+                <h3>🏠 Lista Nozze Tradizionale</h3>
+                <p>Abbiamo creato una lista presso:</p>
+                <a href="#" class="gift-link">Prenatal Store Milano</a>
+            </div>
+            <div class="gift-option">
+                <h3>✈️ Viaggio di Nozze</h3>
+                <p>Aiutateci a realizzare il viaggio dei nostri sogni:</p>
+                <p><strong>IBAN:</strong> IT00 X000 0000 0000 0000 0000 00</p>
+                <p><strong>Causale:</strong> Viaggio di nozze Giorgia e Gabriele</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Come Arrivare -->
+<section id="come-arrivare" class="directions">
+    <div class="container">
+        <h2>Come Arrivare</h2>
+        <div class="directions-grid">
+            <div class="direction-item">
+                <h3>🚗 In Auto</h3>
+                <p><strong>Da Torino:</strong> SS589 direzione Pinerolo, uscita "Pinerolo Centro", seguire indicazioni per Viale della Porporata.</p>
+                <p><strong>Da Milano:</strong> A4 fino Torino, poi SS589 per Pinerolo.</p>
+                <p><strong>Parcheggio:</strong> Disponibile parcheggio presso la location.</p>
+            </div>
+            <div class="direction-item">
+                <h3>🚂 Treno</h3>
+                <p><strong>Stazione:</strong> Pinerolo (linea Torino-Torre Pellice).</p>
+                <p><strong>Da Torino:</strong> Treno diretto ogni ora, circa 45 minuti.</p>
+                <p><strong>Dalla stazione:</strong> 5 minuti in taxi o autobus urbano.</p>
+            </div>
+            <div class="direction-item">
+                <h3>✈️ Aeroporti</h3>
+                <p><strong>Torino Caselle:</strong> 45 minuti in auto via A55.</p>
+                <p><strong>Milano Malpensa:</strong> 2 ore in auto via A4.</p>
+                <p><strong>Shuttle:</strong> Su richiesta, contattateci per organizzare trasferimenti.</p>
+            </div>
+            <div class="direction-item">
+                <h3>🏨 Hotel Consigliati</h3>
+                <p><strong>Hotel Regina:</strong> Via Trento 8, Pinerolo - Tel. 0121.322157</p>
+                <p><strong>B&B Villa Piemonte:</strong> Via Saluzzo 25 - Tel. 0121.393842</p>
+                <p><em>Menzioni "matrimonio Giorgia e Gabriele" per eventuali sconti</em></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Countdown timer
+function countdown() {
+    const weddingDate = new Date("{{ site.matrimonio.data }}T{{ site.matrimonio.ora_cerimonia }}").getTime();
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    
+    if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "Il matrimonio è oggi!";
+    }
+}
+
+countdown();
+setInterval(countdown, 60000);
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Gallery lightbox effect
+document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.addEventListener('click', function() {
+        const lightbox = document.createElement('div');
+        lightbox.classList.add('lightbox');
+        lightbox.innerHTML = `
+            <div class="lightbox-content">
+                <img src="${this.src}" alt="${this.alt}">
+                <span class="close">&times;</span>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+        
+        lightbox.querySelector('.close').addEventListener('click', () => {
+            document.body.removeChild(lightbox);
+        });
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                document.body.removeChild(lightbox);
+            }
+        });
+    });
+});
+</script>

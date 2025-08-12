@@ -1,0 +1,58 @@
+# Configurazione del sito matrimonio
+title: "Giorgia & Gabriele"
+email: giorgia.gabriele@email.com
+description: "Il nostro matrimonio - 5 Settembre 2026"
+baseurl: ""
+url: "https://giorgiaegabriele.netlify.app"
+
+# Informazioni sposi
+sposo:
+  nome: "Gabriele"
+  cognome: "Rossi"
+sposa:
+  nome: "Giorgia" 
+  cognome: "Bianchi"
+
+# Dettagli matrimonio
+matrimonio:
+  data: "2026-09-05"
+  data_formattata: "5 Settembre 2026"
+  ora_cerimonia: "15:30"
+  ora_ricevimento: "18:30"
+
+# Location
+cerimonia:
+  nome: "Chiesa di Sant'Antonio"
+  indirizzo: "Via Roma 15, Pinerolo (TO)"
+  coordinate: "44.8844,7.3322"
+  
+ricevimento:
+  nome: "La Storta Resort"
+  indirizzo: "Viale della Porporata 12, Pinerolo, 10064 (TO)"
+  coordinate: "44.8844,7.3322"
+  telefono: "+39 3474689592"
+  email: "lastortaresort@gmail.com"
+
+# Colori tema (Elegante bordeaux e oro rosa)
+colors:
+  primary: "#8B4B6B"    # Bordeaux elegante
+  secondary: "#FAF7F2"  # Crema chiaro
+  accent: "#D4A574"     # Oro rosa
+  text: "#2C2C2C"       # Grigio scuro
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Collections
+collections:
+  gallery:
+    output: false
+
+# Exclude files
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
