@@ -35,10 +35,10 @@ ricevimento:
 
 # Colori tema (Elegante bordeaux e oro rosa)
 colors:
-  primary: "#8B4B6B"    # Bordeaux elegante
-  secondary: "#FAF7F2"  # Crema chiaro
-  accent: "#D4A574"     # Oro rosa
-  text: "#2C2C2C"       # Grigio scuro
+  primary: "#fffde2"
+  secondary: "#D4AF37"
+  accent: "#CFB53B"
+  text: "#163871"
 
 # Build settings
 markdown: kramdown
