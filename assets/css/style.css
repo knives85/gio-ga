@@ -134,10 +134,11 @@ h3 { font-size: 1.8rem; }
 }
 
 .names {
-    font-size: 4.5rem;
+    font-size: 7.5rem;
     color: var(--text-color);
     margin-bottom: 1.5rem;
     line-height: 1.1;
+    font-family: tangerine;
 }
 
 .names span {
