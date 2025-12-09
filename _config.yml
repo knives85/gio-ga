@@ -35,8 +35,8 @@ ricevimento:
 
 # Colori tema (Elegante bordeaux e oro rosa)
 colors:
-  primary: "#fffde2"
-  secondary: "#D4AF37"
+  primary: "#D4AF37"
+  secondary: "#fffde2"
   accent: "#CFB53B"
   text: "#163871"
 
