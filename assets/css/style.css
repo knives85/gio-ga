@@ -1,11 +1,11 @@
 /* CSS Variables */
 :root {
-    --primary-color: #8B4B6B;      /* Bordeaux elegante */
-    --secondary-color: #FAF7F2;    /* Crema chiaro */
-    --accent-color: #D4A574;       /* Oro rosa */
-    --text-color: #2C2C2C;         /* Grigio scuro */
-    --light-text: #666666;
-    --white: #ffffff;
+    --primary-color: #D4AF37;
+    --secondary-color: #fffde2;
+    --accent-color: #CFB53B;
+    --text-color: #163871;
+    --light-text: #4f74ab;
+    --white: #fffde2;
     --shadow: 0 4px 6px rgba(0,0,0,0.1);
     --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
     --border-radius: 12px;
