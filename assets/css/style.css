@@ -552,6 +552,17 @@ section h2 {
     margin: 0 1rem;
 }
 
+.form-group-note {
+    font-style: italic;
+    padding: 10px;
+}
+
+.form-note {
+    font-style: italic;
+    padding: 10px;
+    text-align: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {

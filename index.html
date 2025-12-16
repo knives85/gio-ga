@@ -32,28 +32,22 @@ layout: default
 <section id="storia" class="our-story">
     <div class="container">
         <h2>La Nostra Storia</h2>
-        <div class="story-timeline">
-            <div class="story-item">
-                <div class="story-date">2019</div>
-                <div class="story-content">
-                    <h3>Il Primo Incontro</h3>
-                    <p>Ci siamo conosciuti durante un corso di danza. Chi avrebbe mai pensato che quei primi passi incerti sarebbero diventati l'inizio del nostro valzer per la vita?</p>
-                </div>
-            </div>
-            <div class="story-item">
-                <div class="story-date">2022</div>
-                <div class="story-content">
-                    <h3>La Convivenza</h3>
-                    <p>Abbiamo deciso di andare a vivere insieme, scoprendo che condividere la vita quotidiana rendeva il nostro amore ancora più forte e speciale.</p>
-                </div>
-            </div>
-            <div class="story-item">
-                <div class="story-date">2025</div>
-                <div class="story-content">
-                    <h3>La Proposta</h3>
-                    <p>Durante una passeggiata romantica tra i vigneti del Piemonte, Gabriele ha chiesto a Giorgia di sposarlo. Una proposta magica con vista sulle montagne!</p>
-                </div>
-            </div>
+        <div class="story-content">
+            <p>
+                Carissimi amici e parenti,<br>
+                Il nostro matrimonio si avvicina!<br>
+                Di seguito abbiamo raccolto una serie di informazioni e dettagli utili per la cerimonia e il
+                ricevimento. <br>
+                Speriamo di poter regalare a tutti voi una giornata speciale, ricca di emozioni e ricordi da
+                collezionare. Vi chiediamo di segnalarci eventuali vostre necessità, faremo il possibile per
+                soddisfarle. <br><br>
+
+                Non vediamo l’ora di trascorrere il nostro giorno più bello con voi! <br><br>
+
+                A presto, <br>
+                Gio e Gabri
+
+            </p>
         </div>
     </div>
 </section>
@@ -69,7 +63,8 @@ layout: default
                 <p><strong>{{ site.cerimonia.nome }}</strong></p>
                 <p>{{ site.cerimonia.indirizzo }}</p>
                 <p>Ore {{ site.matrimonio.ora_cerimonia }}</p>
-                <a href="https://maps.google.com/?q={{ site.cerimonia.coordinate }}" target="_blank" class="map-link">Visualizza mappa</a>
+                <a href="https://maps.google.com/?q={{ site.cerimonia.coordinate }}" target="_blank" class="map-link">Visualizza
+                    mappa</a>
             </div>
             <div class="detail-card">
                 <div class="detail-icon">🍽️</div>
@@ -77,7 +72,8 @@ layout: default
                 <p><strong>{{ site.ricevimento.nome }}</strong></p>
                 <p>{{ site.ricevimento.indirizzo }}</p>
                 <p>Ore {{ site.matrimonio.ora_ricevimento }}</p>
-                <a href="https://maps.google.com/?q={{ site.ricevimento.coordinate }}" target="_blank" class="map-link">Visualizza mappa</a>
+                <a href="https://maps.google.com/?q={{ site.ricevimento.coordinate }}" target="_blank" class="map-link">Visualizza
+                    mappa</a>
             </div>
         </div>
     </div>
@@ -120,76 +116,58 @@ layout: default
             <input type="hidden" name="form-name" value="rsvp">
 
             <div class="form-group">
-                <label for="nome">Nome completo *</label>
+                <label for="nome">Nome e Cognome *</label>
                 <input type="text" id="nome" name="nome" required>
             </div>
 
             <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-
-            <div class="form-group">
-                <label for="telefono">Telefono</label>
-                <input type="tel" id="telefono" name="telefono">
-            </div>
-
-            <div class="form-group">
-                <label for="partecipazione">Parteciperai al matrimonio? *</label>
+                <label for="partecipazione">Parteciperò *</label>
                 <select id="partecipazione" name="partecipazione" required>
                     <option value="">Seleziona...</option>
-                    <option value="si-entrambi">Sì, sia cerimonia che ricevimento</option>
-                    <option value="si-cerimonia">Sì, solo cerimonia</option>
-                    <option value="si-ricevimento">Sì, solo ricevimento</option>
-                    <option value="no">No, non potrò partecipare</option>
+                    <option value="si">Sì</option>
+                    <option value="no">No, purtroppo</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="accompagnatori">Numero accompagnatori</label>
-                <select id="accompagnatori" name="accompagnatori">
-                    <option value="0">Solo io</option>
-                    <option value="1">+1 persona</option>
-                    <option value="2">+2 persone</option>
-                    <option value="3">+3 persone</option>
-                </select>
+                <label for="accompagnatori">Quante persone in totale *</label>
+                <input type="text" id="accompagnatori" name="accompagnatori" required>
             </div>
 
             <div class="form-group">
-                <label for="nomi_accompagnatori">Nomi accompagnatori</label>
-                <input type="text" id="nomi_accompagnatori" name="nomi_accompagnatori" placeholder="Inserisci i nomi degli accompagnatori">
+                <label for="bambini">Quanti bambini presenti</label>
+                <input type="text" id="bambini" name="bambini">
+                <p class="form-group-note">
+                    Per i bambini dai 3 ai 12 anni è stato pensato un momento dedicato al divertimento con uno staff di
+                    animatori esperti.
+                    I bimbi che parteciperanno avranno l’opportunità di mangiare presto ad un tavolo a loro dedicato,
+                    in modo da potersi dedicare poi ai giochi organizzati per loro
+                </p>
             </div>
 
             <div class="form-group">
-                <label for="menu">Preferenze menu</label>
-                <select id="menu" name="menu">
-                    <option value="onnivoro">Onnivoro</option>
-                    <option value="vegetariano">Vegetariano</option>
-                    <option value="vegano">Vegano</option>
-                    <option value="celiaco">Celiaco</option>
-                    <option value="altro">Altro (specificare nelle note)</option>
+                <label for="seggiolone">Avete bisogno di un seggiolone al tavolo?</label>
+                <select id="seggiolone" name="seggiolone">
+                    <option value="">Seleziona...</option>
+                    <option value="si">Sì</option>
+                    <option value="no">No</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="intolleranze">Allergie e intolleranze alimentari</label>
-                <textarea id="intolleranze" name="intolleranze" rows="3" placeholder="Descrivi eventuali allergie o intolleranze alimentari"></textarea>
+                <textarea id="intolleranze" name="intolleranze" rows="3"
+                          placeholder="Descrivi eventuali allergie o intolleranze alimentari"></textarea>
             </div>
 
             <div class="form-group">
-                <label for="trasporto">Hai bisogno di informazioni sui trasporti?</label>
-                <select id="trasporto" name="trasporto">
-                    <option value="no">No, ho già risolto</option>
-                    <option value="mezzi-pubblici">Sì, info mezzi pubblici</option>
-                    <option value="parcheggio">Sì, info parcheggi</option>
-                    <option value="entrambi">Sì, entrambe le info</option>
-                </select>
+                <label for="altro">Altro da sapere? </label>
+                <textarea id="altro" name="altro" rows="3"></textarea>
             </div>
 
-            <div class="form-group">
-                <label for="messaggio">Messaggio per gli sposi</label>
-                <textarea id="messaggio" name="messaggio" rows="4" placeholder="Lasciaci un messaggio speciale!"></textarea>
-            </div>
+            <p class="form-note">
+                Si prega di confermare la propria presenza entro il <strong>31/05/2026</strong>
+            </p>
 
             <button type="submit" class="submit-button">Invia Conferma</button>
         </form>
@@ -224,7 +202,8 @@ layout: default
         <div class="directions-grid">
             <div class="direction-item">
                 <h3>🚗 In Auto</h3>
-                <p><strong>Da Torino:</strong> SS589 direzione Pinerolo, uscita "Pinerolo Centro", seguire indicazioni per Viale della Porporata.</p>
+                <p><strong>Da Torino:</strong> SS589 direzione Pinerolo, uscita "Pinerolo Centro", seguire indicazioni
+                    per Viale della Porporata.</p>
                 <p><strong>Da Milano:</strong> A4 fino Torino, poi SS589 per Pinerolo.</p>
                 <p><strong>Parcheggio:</strong> Disponibile parcheggio presso la location.</p>
             </div>
@@ -285,7 +264,7 @@ layout: default
 
     // Gallery lightbox effect
     document.querySelectorAll('.gallery-item img').forEach(img => {
-        img.addEventListener('click', function() {
+        img.addEventListener('click', function () {
             const lightbox = document.createElement('div');
             lightbox.classList.add('lightbox');
             lightbox.innerHTML = `

@@ -8,10 +8,10 @@ url: "https://giorgiaegabriele.netlify.app"
 # Informazioni sposi
 sposo:
   nome: "Gabriele"
-  cognome: "Rossi"
+  cognome: "Valpiani"
 sposa:
   nome: "Giorgia" 
-  cognome: "Bianchi"
+  cognome: "Vinci"
 
 # Dettagli matrimonio
 matrimonio:
@@ -22,16 +22,16 @@ matrimonio:
 
 # Location
 cerimonia:
-  nome: "Chiesa di Sant'Antonio"
-  indirizzo: "Via Roma 15, Pinerolo (TO)"
-  coordinate: "44.8844,7.3322"
+  nome: "Chiesa di San Michele Al Castello"
+  indirizzo: "13883 Roppolo (BI)"
+  coordinate: "45.4225836,8.0732664"
   
 ricevimento:
-  nome: "La Storta Resort"
-  indirizzo: "Viale della Porporata 12, Pinerolo, 10064 (TO)"
-  coordinate: "44.8844,7.3322"
-  telefono: "+39 3474689592"
-  email: "lastortaresort@gmail.com"
+  nome: "Tenuta Variselle"
+  indirizzo: "Via Roma 19, Roppolo (BI)"
+  coordinate: "45.4231756,8.0696344"
+  telefono: "0161 987563"
+  email: "info@tenutavariselle.it"
 
 # Colori tema (Elegante bordeaux e oro rosa)
 colors:
