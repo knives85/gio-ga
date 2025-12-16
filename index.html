@@ -111,7 +111,7 @@ layout: default
     <div class="container">
         <h2>Conferma la tua presenza</h2>
 
-        <form name="rsvp" netlify class="rsvp-form">
+        <form name="rsvp" netlify class="rsvp-form" action="/success" onsubmit="saveRisposta()">
             <input type="hidden" name="form-name" value="rsvp">
 
             <div class="form-group">
@@ -258,4 +258,13 @@ layout: default
             });
         });
     });
+
+    function saveRisposta() {
+        const risposta = document.getElementById('partecipazione').value;
+        if (risposta.includes('Sì')) {
+            localStorage.setItem('rsvp_risposta', 'si');
+        } else if (risposta.includes('No')) {
+            localStorage.setItem('rsvp_risposta', 'no');
+        }
+    }
 </script>

@@ -1,0 +1,484 @@
+---
+layout: default
+title: Grazie!
+---
+
+<section class="success-page">
+    <div class="container">
+        <!-- Contenuto per chi PARTECIPA -->
+        <div class="success-content" id="success-yes" style="display: none;">
+            <div class="success-icon yes-icon">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 12.5L10.5 15L16 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <h1>Grazie di cuore!</h1>
+            <h2>La tua conferma è stata ricevuta</h2>
+
+            <div class="success-message">
+                <p>Siamo felicissimi che tu possa essere presente al nostro matrimonio!</p>
+                <p class="highlight">Non vediamo l'ora di festeggiare insieme questo giorno speciale.</p>
+            </div>
+
+            <div class="wedding-reminder yes-reminder">
+                <div class="reminder-icon">💒</div>
+                <p class="reminder-date">5 Settembre 2026</p>
+                <p class="reminder-location">Tenuta Variselle, Roppolo (BI)</p>
+            </div>
+
+            <div class="button-group">
+                <a href="/" class="primary-button">Torna alla Home</a>
+                <a href="/#dettagli" class="secondary-button">Rivedi i Dettagli</a>
+            </div>
+
+            <div class="signature">
+                <p>Con affetto,</p>
+                <p class="names-signature">Giorgia & Gabriele</p>
+            </div>
+        </div>
+
+        <!-- Contenuto per chi NON PARTECIPA -->
+        <div class="success-content" id="success-no" style="display: none;">
+            <div class="success-icon no-icon">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 7v6M12 17h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <h1>Ci mancherai!</h1>
+            <h2>Grazie per averci fatto sapere</h2>
+
+            <div class="regret-message">
+                <p>Ci dispiace davvero che non potrai essere con noi in questo giorno così speciale.</p>
+                <p class="highlight">La tua presenza sarà nel nostro cuore.</p>
+            </div>
+
+            <div class="understanding-box">
+                <div class="icon">💝</div>
+                <p>Comprendiamo che gli impegni della vita a volte ci portano altrove, ma sappi che sarai nei nostri pensieri durante la celebrazione.</p>
+            </div>
+
+            <div class="button-group">
+                <a href="/" class="primary-button">Torna alla Home</a>
+            </div>
+
+            <div class="signature">
+                <p>Con affetto,</p>
+                <p class="names-signature">Giorgia & Gabriele</p>
+            </div>
+        </div>
+
+        <!-- Fallback generico se non si capisce la risposta -->
+        <div class="success-content" id="success-default">
+            <div class="success-icon default-icon">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 12.5L10.5 15L16 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <h1>Grazie!</h1>
+            <h2>Abbiamo ricevuto la tua risposta</h2>
+
+            <div class="success-message">
+                <p>Ti ringraziamo per averci fatto sapere!</p>
+            </div>
+
+            <div class="wedding-reminder default-reminder">
+                <div class="reminder-icon">💒</div>
+                <p class="reminder-date">5 Settembre 2026</p>
+                <p class="reminder-location">Tenuta Variselle, Roppolo (BI)</p>
+            </div>
+
+            <div class="button-group">
+                <a href="/" class="primary-button">Torna alla Home</a>
+            </div>
+
+            <div class="signature">
+                <p>Con affetto,</p>
+                <p class="names-signature">Giorgia & Gabriele</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    :root {
+        --primary-color: #1e3a5f;
+        --secondary-color: #f5f1e8;
+        --accent-color: #d4a574;
+        --text-color: #2C2C2C;
+        --light-text: #666666;
+        --white: #ffffff;
+        --success-green: #4caf50;
+        --regret-purple: #7e57c2;
+    }
+
+
+    /* Success Page Base */
+    .success-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 140px 20px 80px;
+        background: linear-gradient(135deg, var(--secondary-color) 0%, var(--white) 100%);
+    }
+
+    .success-content {
+        text-align: center;
+        max-width: 700px;
+        background: var(--white);
+        padding: 4rem 3rem;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        animation: slideUp 0.6s ease;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Success Icons */
+    .success-icon {
+        width: 120px;
+        height: 120px;
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        animation: scaleIn 0.5s ease 0.2s both;
+    }
+
+    .yes-icon {
+        background: linear-gradient(135deg, var(--success-green), #81c784);
+        box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+    }
+
+    .no-icon {
+        background: linear-gradient(135deg, var(--regret-purple), #9575cd);
+        box-shadow: 0 10px 30px rgba(126, 87, 194, 0.3);
+    }
+
+    .default-icon {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        box-shadow: 0 10px 30px rgba(30, 58, 95, 0.3);
+    }
+
+    @keyframes scaleIn {
+        from {
+            transform: scale(0) rotate(-180deg);
+        }
+        to {
+            transform: scale(1) rotate(0deg);
+        }
+    }
+
+    /* Typography */
+    .success-content h1 {
+        color: var(--primary-color);
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        font-family: 'Playfair Display', serif;
+        animation: fadeIn 0.6s ease 0.4s both;
+    }
+
+    .success-content h2 {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        animation: fadeIn 0.6s ease 0.5s both;
+    }
+
+    .success-content h3 {
+        color: var(--primary-color);
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        font-family: 'Playfair Display', serif;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Success Message (per chi partecipa) */
+    .success-message {
+        margin: 2.5rem 0;
+        padding: 2rem;
+        background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);
+        border-radius: 12px;
+        border-left: 4px solid var(--success-green);
+    }
+
+    .success-message p {
+        font-size: 1.15rem;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+        line-height: 1.8;
+    }
+
+    .success-message .highlight {
+        font-size: 1.3rem;
+        color: var(--success-green);
+        font-style: italic;
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+    }
+
+    /* Regret Message (per chi NON partecipa) */
+    .regret-message {
+        margin: 2.5rem 0;
+        padding: 2rem;
+        background: linear-gradient(135deg, #f3e5f5 0%, #ffffff 100%);
+        border-radius: 12px;
+        border-left: 4px solid var(--regret-purple);
+    }
+
+    .regret-message p {
+        font-size: 1.15rem;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+        line-height: 1.8;
+    }
+
+    .regret-message .highlight {
+        font-size: 1.3rem;
+        color: var(--regret-purple);
+        font-style: italic;
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+    }
+
+    /* Understanding Box */
+    .understanding-box {
+        margin: 2rem 0;
+        padding: 2rem;
+        background: var(--secondary-color);
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .understanding-box .icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .understanding-box p {
+        font-size: 1.1rem;
+        color: var(--text-color);
+        line-height: 1.8;
+    }
+
+    /* Alternative Ways */
+
+    .way-item p {
+        font-size: 1rem;
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    .message-box h3 {
+        color: white;
+        margin-bottom: 1rem;
+    }
+
+    .message-box p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.95;
+    }
+
+    .step p {
+        font-size: 1rem;
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    /* Wedding Reminder */
+    .wedding-reminder {
+        margin: 3rem 0;
+        padding: 2rem;
+        color: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .yes-reminder {
+        background: linear-gradient(135deg, var(--success-green), #81c784);
+    }
+
+    .default-reminder {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    }
+
+    .reminder-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .reminder-date {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .reminder-location {
+        font-size: 1.1rem;
+        opacity: 0.95;
+    }
+
+    /* Buttons */
+    .button-group {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin: 2.5rem 0;
+        flex-wrap: wrap;
+    }
+
+    .primary-button,
+    .secondary-button {
+        display: inline-block;
+        padding: 1.2rem 2.5rem;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.95rem;
+    }
+
+    .primary-button {
+        background: var(--primary-color);
+        color: white;
+        box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+    }
+
+    .primary-button:hover {
+        background: var(--accent-color);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(30, 58, 95, 0.4);
+    }
+
+    .secondary-button {
+        background: white;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+    }
+
+    .secondary-button:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    /* Social Share */
+    .social-share > p {
+        font-size: 1rem;
+        color: var(--light-text);
+        margin-bottom: 1rem;
+    }
+
+    .share-btn span {
+        font-size: 1.2rem;
+    }
+
+    /* Signature */
+    .signature {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 2px solid var(--secondary-color);
+    }
+
+    .signature p {
+        font-size: 1rem;
+        color: var(--light-text);
+        margin-bottom: 0.5rem;
+    }
+
+    .names-signature {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-weight: 600;
+        margin-top: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .success-page {
+            padding: 120px 15px 60px;
+        }
+        .success-content {
+            padding: 3rem 2rem;
+        }
+        .success-content h1 {
+            font-size: 2.5rem;
+        }
+        .steps-grid, .ways-grid {
+            grid-template-columns: 1fr;
+        }
+        .button-group {
+            flex-direction: column;
+        }
+        .primary-button, .secondary-button {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .success-content {
+            padding: 2.5rem 1.5rem;
+        }
+        .success-icon {
+            width: 100px;
+            height: 100px;
+        }
+        .success-content h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<script>
+    // Detect risposta dall'URL o localStorage
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const risposta = urlParams.get('risposta') || localStorage.getItem('rsvp_risposta') || 'default';
+
+        // Nascondi tutti i contenuti
+        document.getElementById('success-yes').style.display = 'none';
+        document.getElementById('success-no').style.display = 'none';
+        document.getElementById('success-default').style.display = 'none';
+
+        // Mostra il contenuto appropriato
+        if (risposta === 'si' || risposta.includes('Sì')) {
+            document.getElementById('success-yes').style.display = 'block';
+        } else if (risposta === 'no' || risposta.includes('No')) {
+            document.getElementById('success-no').style.display = 'block';
+        } else {
+            document.getElementById('success-default').style.display = 'block';
+        }
+
+        // Pulisci localStorage
+        localStorage.removeItem('rsvp_risposta');
+    });
+
+</script>
