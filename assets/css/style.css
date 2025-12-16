@@ -583,6 +583,17 @@ section h2::after {
     min-height: 120px;
 }
 
+.form-group-note {
+    font-style: italic;
+    padding: 10px;
+}
+
+.form-note {
+    font-style: italic;
+    padding: 10px;
+    text-align: center;
+}
+
 .submit-button {
     width: 100%;
     background: var(--primary-color);
