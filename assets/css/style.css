@@ -570,12 +570,16 @@ section h2::after {
 .form-group-note {
     font-style: italic;
     padding: 10px;
+    line-height: 1.4;
+    font-size: 1rem;
 }
 
 .form-note {
     font-style: italic;
     padding: 10px;
     text-align: center;
+    line-height: 1.4;
+    font-size: 1rem;
 }
 
 .submit-button {
