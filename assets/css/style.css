@@ -759,7 +759,7 @@ section h2::after {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
     .nav-menu {
         position: fixed;
         left: -100%;
