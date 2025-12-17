@@ -261,9 +261,10 @@ layout: default
 
     function saveRisposta() {
         const risposta = document.getElementById('partecipazione').value;
-        if (risposta.includes('Sì')) {
+        alert('Grazie per aver confermato la tua presenza!' + risposta);
+        if (risposta.includes('si')) {
             localStorage.setItem('rsvp_risposta', 'si');
-        } else if (risposta.includes('No')) {
+        } else if (risposta.includes('no')) {
             localStorage.setItem('rsvp_risposta', 'no');
         }
     }
