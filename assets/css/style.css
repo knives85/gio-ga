@@ -146,11 +146,6 @@ p {
     line-height: 1.1;
 }
 
-.names span {
-    color: var(--primary-color);
-    font-style: italic;
-}
-
 .wedding-date {
     font-size: 2rem;
     color: var(--primary-color);
@@ -1115,11 +1110,6 @@ h3 { font-size: 1.8rem; }
     color: var(--text-color);
     margin-bottom: 1.5rem;
     line-height: 1.1;
-}
-
-.names span {
-    color: var(--primary-color);
-    font-style: italic;
 }
 
 .wedding-date {

@@ -7,11 +7,11 @@ url: "https://giorgiaegabriele.netlify.app"
 
 # Informazioni sposi
 sposo:
-  nome: "Gabriele"
-  cognome: "Valpiani"
+  nome: "gabriele"
+  cognome: "valpiani"
 sposa:
-  nome: "Giorgia" 
-  cognome: "Vinci"
+  nome: "giorgia"
+  cognome: "vinci"
 
 # Dettagli matrimonio
 matrimonio:
