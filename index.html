@@ -374,6 +374,7 @@ layout: default
 
             // Rendi required i campi partecipanti
             document.getElementById('partecipante-nome-no').required = false;
+            document.getElementById('tel').required = true;
             document.querySelectorAll('.partecipante-nome').forEach(input => {
                 input.required = true;
             });
@@ -382,6 +383,7 @@ layout: default
             section_no.style.display = 'block';
 
             document.getElementById('partecipante-nome-no').required = true;
+            document.getElementById('tel').required = false;
             // Rimuovi required dai campi partecipanti
             document.querySelectorAll('.partecipante-nome').forEach(input => {
                 input.required = false;
