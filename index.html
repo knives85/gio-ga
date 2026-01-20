@@ -103,7 +103,7 @@ layout: default
             <div id="partecipanti-no-section" style="display: none;">
                 <div class="form-group">
                     <label for="tel">Nome e Cognome *</label>
-                    <input type="text" class="partecipante-nome-no" required>
+                    <input type="text" class="partecipante-no-nome" required>
                 </div>
             </div>
 
@@ -373,7 +373,7 @@ layout: default
             section_no.style.display = 'none';
 
             // Rendi required i campi partecipanti
-            document.querySelectorAll('.partecipante-nome-no').forEach(input => {
+            document.querySelectorAll('.partecipante-no-nome').forEach(input => {
                 input.required = false;
             });
             document.getElementById('tel').required = true;
@@ -384,7 +384,7 @@ layout: default
             section_si.style.display = 'none';
             section_no.style.display = 'block';
 
-            document.querySelectorAll('.partecipante-nome-no').forEach(input => {
+            document.querySelectorAll('.partecipante-no-nome').forEach(input => {
                 input.required = true;
             });
             document.getElementById('tel').required = false;
