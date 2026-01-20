@@ -146,11 +146,18 @@ layout: default
 
                 <div class="form-group">
                     <label for="seggiolone">Avete bisogno di un seggiolone al tavolo?</label>
-                    <select id="seggiolone" name="seggiolone">
+                    <select id="seggiolone" name="seggiolone" onchange="toggleSeggiolone()">
                         <option value="">Seleziona...</option>
                         <option value="si">Sì</option>
                         <option value="no">No</option>
                     </select>
+                </div>
+
+                <div id="seggiolone-numero-section" style="display: none;">
+                    <div class="form-group">
+                        <label for="seggiolone-numero">Quanti?</label>
+                        <input type="number" id="seggiolone-numero" name="seggiolone-numero" min="0" value="0">
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -379,6 +386,24 @@ layout: default
             document.querySelectorAll('.partecipante-nome').forEach(input => {
                 input.required = false;
             });
+        }
+    }
+
+    function toggleSeggiolone() {
+        const risposta = document.getElementById('seggiolone').value;
+        const section_seggiolone_num = document.getElementById('seggiolone-numero-section');
+
+        if (risposta === 'si') {
+            section_seggiolone_num.style.display = 'block';
+
+            // Rendi required i campi partecipanti
+            document.getElementById('seggiolone-numero').required = true;
+            document.getElementById('seggiolone-numero').value = 1;
+        } else {
+            section_seggiolone_num.style.display = 'none';
+
+            document.getElementById('seggiolone-numero').required = false;
+            document.getElementById('seggiolone-numero').value = 0;
         }
     }
 
