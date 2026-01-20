@@ -89,6 +89,7 @@ layout: default
 
             <!-- Campo nascosto per i nomi (verrà riempito dinamicamente) -->
             <input type="hidden" id="nomi-partecipanti-hidden" name="nomi-partecipanti">
+            <input type="hidden" id="tot-partecipanti-hidden" name="totale-partecipanti">
 
             <div class="form-group">
                 <label for="partecipazione">Parteciperó *</label>
@@ -99,8 +100,15 @@ layout: default
                 </select>
             </div>
 
+            <div id="partecipanti-no-section" style="display: none;">
+                <div class="form-group">
+                    <label for="tel">Nome e Cognome *</label>
+                    <input type="text" id="partecipante-nome-no" name="partecipante-nome-no" required>
+                </div>
+            </div>
+
             <!-- Sezione partecipanti (visibile solo se risposta = Sì) -->
-            <div id="partecipanti-section" style="display: none;">
+            <div id="partecipanti-si-section" style="display: none;">
                 <div class="form-group">
                     <label>Partecipanti *</label>
                     <p class="form-help">Inserisci il nome e cognome di ogni partecipante (compresi i bambini)</p>
@@ -350,16 +358,23 @@ layout: default
     // Mostra/nasconde sezione partecipanti
     function togglePartecipantiSection() {
         const risposta = document.getElementById('partecipazione').value;
-        const section = document.getElementById('partecipanti-section');
+        const section_si = document.getElementById('partecipanti-si-section');
+        const section_no = document.getElementById('partecipanti-no-section');
 
         if (risposta === 'si') {
-            section.style.display = 'block';
+            section_si.style.display = 'block';
+            section_no.style.display = 'none';
+
             // Rendi required i campi partecipanti
+            document.getElementById('partecipante-nome-no').required = false;
             document.querySelectorAll('.partecipante-nome').forEach(input => {
                 input.required = true;
             });
         } else {
-            section.style.display = 'none';
+            section_si.style.display = 'none';
+            section_no.style.display = 'block';
+
+            document.getElementById('partecipante-nome-no').required = true;
             // Rimuovi required dai campi partecipanti
             document.querySelectorAll('.partecipante-nome').forEach(input => {
                 input.required = false;
@@ -423,16 +438,26 @@ layout: default
 
     // Prepara i dati per l'invio
     function prepareFormSubmission() {
-        const nomiInputs = document.querySelectorAll('.partecipante-nome');
-        const nomi = Array.from(nomiInputs)
-            .map(input => input.value.trim())
-            .filter(nome => nome !== '');
+        const risposta = document.getElementById('partecipazione').value;
+        const nomeNo = document.getElementById('partecipante-no-nome');
+        let nomiString = '';
+        let totPartecipanti = 0;
 
-        // Crea una stringa separata da virgole per il CSV
-        const nomiString = nomi.join(', ');
+        if (risposta === 'si') {
+            const nomiInputs = document.querySelectorAll('.partecipante-nome');
+            const nomi = Array.from(nomiInputs)
+                .map(input => input.value.trim())
+                .filter(nome => nome !== '');
+
+            nomiString = nomi.join(', ');
+            totPartecipanti = nomi.length;
+        } else {
+            nomiString = nomeNo.value.trim();
+        }
 
         // Inserisci nel campo nascosto
         document.getElementById('nomi-partecipanti-hidden').value = nomiString;
+        document.getElementById('tot-partecipanti-hidden').value = totPartecipanti;
 
         return true; // Permetti l'invio del form
     }
