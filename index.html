@@ -92,16 +92,74 @@ layout: default
                 <input type="text" id="nome" name="nome" required>
             </div>
 
+            <input type="hidden" name="form-name" value="rsvp">
+
+            <!-- Campo nascosto per i nomi (verrà riempito dinamicamente) -->
+            <input type="hidden" id="nomi-partecipanti-hidden" name="nomi-partecipanti">
+
             <div class="form-group">
-                <label for="partecipazione">Parteciperò *</label>
-                <select id="partecipazione" name="partecipazione" required>
+                <label for="partecipazione">Parteciperó *</label>
+                <select id="partecipazione" name="partecipazione" required onchange="togglePartecipantiSection()">
                     <option value="">Seleziona...</option>
                     <option value="si">Sì</option>
                     <option value="no">No, purtroppo</option>
                 </select>
             </div>
 
-            <div class="form-group">
+            <!-- Sezione partecipanti (visibile solo se risposta = Sì) -->
+            <div id="partecipanti-section" style="display: none;">
+                <div class="form-group">
+                    <label>Partecipanti *</label>
+                    <p class="form-help">Inserisci il nome e cognome di ogni partecipante (compresi i bambini)</p>
+
+                    <div id="partecipanti-list">
+                        <!-- Il primo partecipante è sempre visibile -->
+                        <div class="partecipante-item" data-index="0">
+                            <div class="partecipante-row">
+                                <input type="text"
+                                       class="partecipante-nome"
+                                       placeholder="Nome e Cognome"
+                                       required>
+                                <button type="button" class="remove-partecipante" onclick="removePartecipante(0)" style="display: none;">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="add-partecipante" onclick="addPartecipante()">
+                        + Aggiungi partecipante
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    <label for="bambini">Quanti bambini presenti</label>
+                    <input type="number" id="bambini" name="bambini" min="0" value="0">
+                    <p class="form-group-note">
+                        Per i bambini dai 3 ai 12 anni è stato pensato un momento dedicato al divertimento con uno staff di
+                        animatori esperti.
+                        I bimbi che parteciperanno avranno l'opportunità di mangiare presto ad un tavolo a loro dedicato,
+                        in modo da potersi dedicare poi ai giochi organizzati per loro
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <label for="seggiolone">Avete bisogno di un seggiolone al tavolo?</label>
+                    <select id="seggiolone" name="seggiolone">
+                        <option value="">Seleziona...</option>
+                        <option value="si">Sì</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="intolleranze">Allergie e intolleranze alimentari</label>
+                    <textarea id="intolleranze" name="intolleranze" rows="3"
+                              placeholder="Descrivi eventuali allergie o intolleranze alimentari"></textarea>
+                </div>
+            </div>
+
+            <!--<div class="form-group">
                 <label for="ospiti">Quante persone in totale *</label>
                 <input type="number" id="ospiti" name="ospiti" required>
             </div>
@@ -130,7 +188,7 @@ layout: default
                 <label for="intolleranze">Allergie e intolleranze alimentari</label>
                 <textarea id="intolleranze" name="intolleranze" rows="3"
                           placeholder="Descrivi eventuali allergie o intolleranze alimentari"></textarea>
-            </div>
+            </div>-->
 
             <div class="form-group">
                 <label for="altro">Altro da sapere? </label>
@@ -186,6 +244,81 @@ layout: default
         </div>
     </div>
 </section>
+
+<style>
+    /* Stili per i partecipanti dinamici */
+    .partecipante-item {
+        margin-bottom: 0.8rem;
+    }
+
+    .partecipante-row {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .partecipante-nome {
+        flex: 1;
+        padding: 1rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: 'Lato', sans-serif;
+        transition: all 0.3s ease;
+    }
+
+    .partecipante-nome:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+    }
+
+    .remove-partecipante {
+        padding: 0.8rem 1rem;
+        background: #e53935;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 45px;
+    }
+
+    .remove-partecipante:hover {
+        background: #c62828;
+        transform: scale(1.05);
+    }
+
+    .add-partecipante {
+        width: 100%;
+        padding: 1rem;
+        background: white;
+        color: var(--primary-color);
+        border: 2px dashed var(--primary-color);
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+    }
+
+    .add-partecipante:hover {
+        background: var(--primary-color);
+        color: white;
+        border-style: solid;
+    }
+
+    .form-help {
+        font-size: 0.95rem;
+        color: var(--light-text);
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+
+
+</style>
 
 <script>
     // Countdown timer
@@ -244,6 +377,98 @@ layout: default
             });
         });
     });
+
+    let partecipantiCount = 1;
+
+    // Mostra/nasconde sezione partecipanti
+    function togglePartecipantiSection() {
+        const risposta = document.getElementById('partecipation').value;
+        const section = document.getElementById('partecipanti-section');
+
+        if (risposta === 'si') {
+            section.style.display = 'block';
+            // Rendi required i campi partecipanti
+            document.querySelectorAll('.partecipante-nome').forEach(input => {
+                input.required = true;
+            });
+        } else {
+            section.style.display = 'none';
+            // Rimuovi required dai campi partecipanti
+            document.querySelectorAll('.partecipante-nome').forEach(input => {
+                input.required = false;
+            });
+        }
+    }
+
+    // Aggiungi nuovo partecipante
+    function addPartecipante() {
+        const list = document.getElementById('partecipanti-list');
+        const newIndex = partecipantiCount;
+
+        const newItem = document.createElement('div');
+        newItem.className = 'partecipante-item';
+        newItem.setAttribute('data-index', newIndex);
+        newItem.innerHTML = `
+            <div class="partecipante-row">
+                <input type="text"
+                       class="partecipante-nome"
+                       placeholder="Nome e Cognome"
+                       required>
+                <button type="button" class="remove-partecipante" onclick="removePartecipante(${newIndex})">
+                    ✕
+                </button>
+            </div>
+        `;
+
+        list.appendChild(newItem);
+        partecipantiCount++;
+
+        // Mostra il pulsante rimuovi sul primo elemento se ci sono più partecipanti
+        updateRemoveButtons();
+    }
+
+    // Rimuovi partecipante
+    function removePartecipante(index) {
+        const item = document.querySelector(`.partecipante-item[data-index="${index}"]`);
+        if (item) {
+            item.remove();
+            updateRemoveButtons();
+        }
+    }
+
+    // Aggiorna visibilità pulsanti rimuovi
+    function updateRemoveButtons() {
+        const items = document.querySelectorAll('.partecipante-item');
+        const firstRemoveBtn = items[0]?.querySelector('.remove-partecipante');
+
+        if (items.length > 1) {
+            // Mostra tutti i pulsanti rimuovi se ci sono più partecipanti
+            items.forEach(item => {
+                item.querySelector('.remove-partecipante').style.display = 'block';
+            });
+        } else {
+            // Nascondi il pulsante rimuovi se c'è solo un partecipante
+            if (firstRemoveBtn) {
+                firstRemoveBtn.style.display = 'none';
+            }
+        }
+    }
+
+    // Prepara i dati per l'invio
+    function prepareFormSubmission() {
+        const nomiInputs = document.querySelectorAll('.partecipante-nome');
+        const nomi = Array.from(nomiInputs)
+            .map(input => input.value.trim())
+            .filter(nome => nome !== '');
+
+        // Crea una stringa separata da virgole per il CSV
+        const nomiString = nomi.join(', ');
+
+        // Inserisci nel campo nascosto
+        document.getElementById('nomi-partecipanti-hidden').value = nomiString;
+
+        return true; // Permetti l'invio del form
+    }
 
     function saveRisposta() {
         const risposta = document.getElementById('partecipazione').value;
