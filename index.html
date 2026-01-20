@@ -482,8 +482,12 @@ layout: default
             nomiString = nomi.join(', ');
             totPartecipanti = nomi.length;
         } else {
-            const nomeNo = document.querySelectorAll('.partecipante-no-nome').item(0);
-            nomiString = nomeNo.value.trim();
+            const nomiNo = document.querySelectorAll('.partecipante-no-nome');
+            const nomi = Array.from(nomiNo)
+                .map(input => input.value.trim())
+                .filter(nome => nome !== '');
+
+            nomiString = nomi.join(', ');
         }
 
         // Inserisci nel campo nascosto
