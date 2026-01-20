@@ -84,7 +84,7 @@ layout: default
     <div class="container">
         <h2>Conferma la tua presenza</h2>
 
-        <form name="rsvp" netlify class="rsvp-form" action="/success" onsubmit="saveRisposta()">
+        <form name="rsvp" netlify class="rsvp-form" action="/success" onsubmit="saveRisposta(); prepareFormSubmission()">
             <input type="hidden" name="form-name" value="rsvp">
 
             <!-- Campo nascosto per i nomi (verrà riempito dinamicamente) -->
