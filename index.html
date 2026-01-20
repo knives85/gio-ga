@@ -103,7 +103,7 @@ layout: default
             <div id="partecipanti-no-section" style="display: none;">
                 <div class="form-group">
                     <label for="tel">Nome e Cognome *</label>
-                    <input type="text" id="partecipante-nome-no" name="partecipante-nome-no" required>
+                    <input type="text" class="partecipante-nome-no" required>
                 </div>
             </div>
 
@@ -373,7 +373,9 @@ layout: default
             section_no.style.display = 'none';
 
             // Rendi required i campi partecipanti
-            document.getElementById('partecipante-nome-no').required = false;
+            document.querySelectorAll('.partecipante-nome-no').forEach(input => {
+                input.required = false;
+            });
             document.getElementById('tel').required = true;
             document.querySelectorAll('.partecipante-nome').forEach(input => {
                 input.required = true;
@@ -382,7 +384,9 @@ layout: default
             section_si.style.display = 'none';
             section_no.style.display = 'block';
 
-            document.getElementById('partecipante-nome-no').required = true;
+            document.querySelectorAll('.partecipante-nome-no').forEach(input => {
+                input.required = true;
+            });
             document.getElementById('tel').required = false;
             // Rimuovi required dai campi partecipanti
             document.querySelectorAll('.partecipante-nome').forEach(input => {
@@ -466,7 +470,6 @@ layout: default
     // Prepara i dati per l'invio
     function prepareFormSubmission() {
         const risposta = document.getElementById('partecipazione').value;
-        const nomeNo = document.getElementById('partecipante-no-nome');
         let nomiString = '';
         let totPartecipanti = 0;
 
@@ -479,6 +482,7 @@ layout: default
             nomiString = nomi.join(', ');
             totPartecipanti = nomi.length;
         } else {
+            const nomeNo = document.querySelectorAll('.partecipante-no-nome').item(0);
             nomiString = nomeNo.value.trim();
         }
 
