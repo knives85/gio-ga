@@ -1697,6 +1697,10 @@ section h2 {
         font-size: 0.75rem;
     }
 
+    .hero-image {
+       align-items: baseline !important;
+    }
+
     .hero-image img {
         max-height: 190px;
         width: auto;
