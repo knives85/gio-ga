@@ -941,7 +941,8 @@ section h2::after {
     }
 
     .hero-image img {
-        max-width: 350px;
+        max-width: 280px;
+        width: auto;
     }
 
     h2 {
@@ -1701,7 +1702,8 @@ section h2 {
     }
 
     .hero-image img {
-        height: 350px;
+        height: 190px;
+        width: auto;
     }
 
     .gallery-grid {
@@ -1730,5 +1732,6 @@ section h2 {
 
     .hero-image img {
         height: 600px;
+        width: auto;
     }
 }
