@@ -149,6 +149,9 @@ p {
 }
 
 .names {
+    font-family: 'Butler';
+    font-weight: bold;
+    font-style: normal;
     font-size: 5rem;
     color: var(--text-color);
     margin-bottom: 1.5rem;
