@@ -16,7 +16,7 @@ sposa:
 # Dettagli matrimonio
 matrimonio:
   data: "2026-09-05"
-  data_formattata: "5 Settembre 2026"
+  data_formattata: "5 SETTEMBRE 2026"
   ora_cerimonia: "15:30"
   ora_ricevimento: "18:30"
 
