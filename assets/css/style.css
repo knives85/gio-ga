@@ -1712,6 +1712,26 @@ section h2 {
     }
 }
 
+@media (max-width: 1400px) {
+    .hero-content {
+        max-width: 1000px;
+        gap: 6rem;
+    }
+
+    .names {
+        font-size: 5.5rem;
+    }
+
+    .wedding-date {
+        font-size: 2rem;
+    }
+
+    .hero-image img {
+        max-height: 600px;
+        width: auto;
+    }
+}
+
 @media (min-width: 1400px) {
     .hero-content {
         max-width: 1400px;
