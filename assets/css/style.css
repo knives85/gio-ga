@@ -1712,7 +1712,7 @@ section h2 {
     }
 }
 
-@media (max-width: 1400px) {
+@media (min-width: 990px) and (max-width: 1400px) {
     .hero-content {
         max-width: 1000px;
         gap: 6rem;
