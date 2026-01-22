@@ -6,6 +6,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Butler';
+    src: url('../font/Butler.woff2') format('woff2'),
+    url('../font/Butler.woff') format('woff');
+    font-style: normal;
+}
+
 
 /* CSS Variables */
 :root {
@@ -28,7 +35,7 @@
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Butler', sans-serif;
     line-height: 1.7;
     color: var(--text-color);
     background-color: var(--white);
