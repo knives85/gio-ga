@@ -9,12 +9,12 @@
 
 /* CSS Variables */
 :root {
-    --primary-color: #D4AF37;
-    --secondary-color: #fffde2;
+    --primary-color: #b89643;
+    --secondary-color: #fffef0;
     --accent-color: #CFB53B;
-    --text-color: #163871;
+    --text-color: #183e83;
     --light-text: #4f74ab;
-    --white: #fffde2;
+    --white: #fffef0;
     --shadow: 0 4px 6px rgba(0,0,0,0.1);
     --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
     --border-radius: 12px;
