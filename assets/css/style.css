@@ -91,7 +91,7 @@ p {
 }
 
 .nav-logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Butler', serif;
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary-color);
@@ -1055,15 +1055,6 @@ h3 { font-size: 1.8rem; }
     justify-content: space-between;
     align-items: center;
 }
-
-.nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
 .nav-menu {
     display: flex;
     list-style: none;
