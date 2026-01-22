@@ -159,12 +159,12 @@ p {
 }
 
 .wedding-date {
+    font-family: 'Arca Majora 3', sans-serif;
     font-size: 2rem;
-    color: var(--primary-color);
+    color: var(--text-color);
     margin-bottom: 3rem;
     font-weight: 400;
     letter-spacing: 3px;
-    font-family: 'Playfair Display', serif;
 }
 
 .countdown {
@@ -1125,8 +1125,9 @@ h3 { font-size: 1.8rem; }
 }
 
 .wedding-date {
+    font-family: 'Arca Majora 3', sans-serif;
     font-size: 1.8rem;
-    color: var(--light-text);
+    color: var(--text-color);
     margin-bottom: 3rem;
     font-weight: 300;
     letter-spacing: 2px;
